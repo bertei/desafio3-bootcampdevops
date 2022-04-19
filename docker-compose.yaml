@@ -29,6 +29,8 @@ services:
             - MYSQL_ROOT_PASSWORD=root
         networks:
             - node-network
+        ports:
+            - "3306:3306"
 
     nginx:
         build:
@@ -41,3 +43,7 @@ services:
             - node-network
         ports: 
             - "8080:80"
+
+network:
+  node-network:
+    driver: bridge
